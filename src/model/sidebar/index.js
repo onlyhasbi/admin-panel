@@ -1,4 +1,10 @@
-import { RiLayout4Line, RiBuildingLine, RiGroupLine,RiFolder2Line } from "react-icons/ri";
+import {
+  RiLayout4Line,
+  RiBuildingLine,
+  RiGroupLine,
+  RiFolder2Line,
+  RiFilePaperLine,
+} from "react-icons/ri";
 
 export const sidebarModel = [
   { label: "Overview", path: "/", icon: <RiLayout4Line /> },
@@ -6,6 +12,13 @@ export const sidebarModel = [
   { label: "Tenant", path: "/tenant", icon: <RiGroupLine /> },
   {
     label: "Management",
-    submenu: [{ label: "Audit", path: "/management/audit",icon: <RiFolder2Line /> }],
+    submenu: [
+      { label: "Audit", path: "/management/audit", icon: <RiFolder2Line /> },
+      {
+        label: "Document",
+        path: "/management/document",
+        icon: <RiFilePaperLine />,
+      },
+    ],
   },
 ];

@@ -2,6 +2,7 @@ import Head from "next/head";
 import Layout from "@/components/layout";
 import CardInfo from "@/components/page/overview/card-info.component";
 import { cardInfoModel } from "@/model/overview";
+import Chart from "@/components/chart";
 
 function Home() {
   return (
@@ -12,8 +13,9 @@ function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div className="flex lg:justify-between md:gap-x-4 ">
+      <main className="pb-[5rem]">
+        <Chart />
+        <div className="flex lg:justify-between md:gap-x-4 mt-[7rem]">
           {cardInfoModel.map(({ label, value, icon, bgicon }, index) => {
             return (
               <CardInfo
