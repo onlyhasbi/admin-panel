@@ -1,8 +1,10 @@
 import Button from "@/components/common/button";
+import Input from "@/components/common/input";
 import Modal from "@/components/common/modal";
 import Table from "@/components/common/table";
 import Layout from "@/components/layout";
 import { useReducer } from "react";
+import { RiAddLine } from "react-icons/ri";
 
 function Building() {
   const [open, toggle] = useReducer((open) => !open, false);
@@ -15,13 +17,9 @@ function Building() {
   return (
     <div className="mb-14">
       <div className="flex justify-between items-center">
-        
-        <Button
-          className="text-lg text-white font-bold"
-          onClick={toggle}
-          primary
-        >
-          +
+        <Input type="text" name="search" placeholder="Search" />
+        <Button className="text-white p-5" onClick={toggle} primary>
+          <RiAddLine />
         </Button>
       </div>
       <Table />
