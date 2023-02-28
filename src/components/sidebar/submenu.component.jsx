@@ -31,10 +31,9 @@ function Submenu({ label: parentLabel, items, currentPath }) {
               {items.map((item, index) => {
                 const { label, path, icon } = item;
                 const active = path === currentPath;
-                let component;
 
-                if (icon) {
-                  component = (
+                return (
+                  <Link key={index} href={path} className="relative">
                     <Label
                       label={label}
                       icon={icon}
@@ -48,16 +47,6 @@ function Submenu({ label: parentLabel, items, currentPath }) {
                         "pl-6",
                       ])}
                     />
-                  );
-                }
-
-                if (!icon) {
-                  component = <Label label={label} />;
-                }
-
-                return (
-                  <Link key={index} href={path} className="relative">
-                    {component}
                   </Link>
                 );
               })}

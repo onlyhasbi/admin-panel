@@ -10,8 +10,6 @@ function List({ items, currentPath }) {
     const isSubmenu = submenu?.length > 0;
     const active = path === currentPath;
 
-    let component;
-
     if (isSubmenu) {
       return (
         <Submenu
@@ -23,25 +21,15 @@ function List({ items, currentPath }) {
       );
     }
 
-    if (icon) {
-      component = (
+    return (
+      <Link key={index} href={path} className="relative">
         <Label
           label={label}
           icon={icon}
           iconStyle={clsx(["text-lg", ...selectedTextStyle(active)])}
           textStyle={clsx(selectedTextStyle(active))}
-          className={clsx(selectedContainerStyle(active))}
+          className={clsx([selectedContainerStyle(active), "w-[11.5rem]"])}
         />
-      );
-    }
-
-    if (!icon) {
-      component = <Label label={label} />;
-    }
-
-    return (
-      <Link key={index} href={path} className="relative">
-        {component}
       </Link>
     );
   });
