@@ -1,4 +1,4 @@
-const { pathToLabel } = require("@/utils/pathToLabel");
+import { pathToLabel } from "@/components/utils/pathToLabel";
 
 function Heading({ pathName, username }) {
   if (pathName === "/") {

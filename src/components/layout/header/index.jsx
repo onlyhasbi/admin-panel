@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
 import Heading from "./heading";
 import Profile from "./profile";
 import ProfileInfo from "./profile/profile-info.component";
 import ProfilePicture from "./profile/profile-picture.component";
+import { useRouter } from "next/router";
 
 const user = {
   username: "John",

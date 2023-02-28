@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import Portal from "../portal";
 import ModalBackground from "./modal-background.component";
 import ModalContent from "./modal-content.component";
+import Portal from "@/components/portal";
 import { Transition } from "@headlessui/react";
 
 function Modal(props) {

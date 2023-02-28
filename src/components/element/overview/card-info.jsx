@@ -1,5 +1,5 @@
-import Card from "@/components/card";
-import Label from "@/components/forms/label";
+import Card from "@/components/common/card";
+import Label from "@/components/common/label";
 import { RiHistoryLine } from "react-icons/ri";
 
 function CardInfo({ label, value, icon, bgicon }) {

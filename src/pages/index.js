@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Layout from "@/components/layout";
-import CardInfo from "@/components/page/overview/card-info.component";
-import Chart from "@/components/chart";
+import Chart from "@/components/element/overview/chart";
+import CardInfo from "@/components/element/overview/card-info";
 import { cardInfoModel } from "@/model/overview";
 
 function Home() {

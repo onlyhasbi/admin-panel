@@ -1,3 +1,4 @@
+import { data } from "@/model/chart";
 import {
   LineChart,
   Line,
@@ -7,7 +8,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { data } from "@/model/chart";
 
 function Chart() {
   return (

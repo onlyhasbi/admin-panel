@@ -1,5 +1,5 @@
 import Submenu from "./submenu.component";
-import Label from "../forms/label";
+import Label from "@/components/common/label";
 import Link from "next/link";
 import clsx from "clsx";
 import { selectedContainerStyle, selectedTextStyle } from "./selected-style";

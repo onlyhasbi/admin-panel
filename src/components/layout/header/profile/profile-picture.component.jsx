@@ -1,5 +1,5 @@
-import Label from "@/components/forms/label";
 import Link from "next/link";
+import Label from "@/components/common/label";
 import { Popover, Transition } from "@headlessui/react";
 import { profileModel } from "@/model/profile";
 import { Fragment } from "react";

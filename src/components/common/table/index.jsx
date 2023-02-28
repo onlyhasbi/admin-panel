@@ -1,7 +1,9 @@
 function Table() {
   return (
     <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
+     
       <div class="align-middle rounded-tl-lg rounded-tr-lg inline-block w-full py-4 overflow-hidden bg-white shadow-lg px-12">
+        
         <div class="flex justify-between">
           <div class="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
             <div class="flex flex-wrap items-stretch w-full h-full mb-6 relative">
@@ -38,8 +40,11 @@ function Table() {
             </div>
           </div>
         </div>
+
       </div>
+
       <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+       
         <table class="min-w-full">
           <thead>
             <tr>
@@ -64,6 +69,7 @@ function Table() {
               <th class="px-6 py-3 border-b-2 border-gray-300"></th>
             </tr>
           </thead>
+
           <tbody class="bg-white">
             <tr>
               <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -252,6 +258,7 @@ function Table() {
             </tr>
           </tbody>
         </table>
+
         <div class="sm:flex-1 sm:flex sm:items-center sm:justify-between mt-4 work-sans">
           <div>
             <p class="text-sm leading-5 text-blue-700">
@@ -319,7 +326,9 @@ function Table() {
             </nav>
           </div>
         </div>
+
       </div>
+
     </div>
   );
 }

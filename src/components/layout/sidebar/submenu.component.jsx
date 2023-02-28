@@ -1,5 +1,5 @@
-import Label from "../forms/label";
 import Link from "next/link";
+import Label from "@/components/common/label";
 import clsx from "clsx";
 import { Disclosure, Transition } from "@headlessui/react";
 import { selectedContainerStyle, selectedTextStyle } from "./selected-style";
@@ -10,7 +10,7 @@ function Submenu({ label: parentLabel, items, currentPath }) {
     <Disclosure>
       {({ open }) => (
         <>
-          <Disclosure.Button className="relative text-left text-white pl-3 mt-3">
+          <Disclosure.Button className="relative text-left text-white pl-3 mt-3 mb-2">
             {parentLabel}
             <RiArrowDropDownLine
               className={`absolute transition-all duration-150 ease-linear right-0 top-[.1rem] text-2xl ${
@@ -27,7 +27,7 @@ function Submenu({ label: parentLabel, items, currentPath }) {
             leaveFrom=" translate-y-0"
             leaveTo="opacity-0 -translate-y-3"
           >
-            <Disclosure.Panel>
+            <Disclosure.Panel className="flex flex-col gap-y-4">
               {items.map((item, index) => {
                 const { label, path, icon } = item;
                 const active = path === currentPath;

@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { useClickAway } from "@/utils/clickAway";
 import { useRef } from "react";
 import { RiCloseLine } from "react-icons/ri";
+import { useClickAway } from "@/components/utils/clickAway";
 
 function ModalContent({ props }) {
   const {

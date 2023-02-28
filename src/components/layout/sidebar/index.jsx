@@ -1,6 +1,6 @@
+import List from "./list.component";
 import { sidebarModel } from "@/model/sidebar";
 import { useRouter } from "next/router";
-import List from "./list.component";
 
 function Sidebar() {
   const { pathname: currentPath } = useRouter();
