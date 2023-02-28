@@ -6,7 +6,7 @@ function Heading({ pathName, username }) {
       <div>
         <h1 className="text-2xl font-bold text-slate-800">{`Welcomeback, ${username}`}</h1>
         <p className="text-slate-600">
-          Here's what happening in your account today
+          {`Here's what happening in your account today`}
         </p>
       </div>
     );

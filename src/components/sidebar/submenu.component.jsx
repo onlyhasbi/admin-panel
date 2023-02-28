@@ -3,7 +3,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { Disclosure, Transition } from "@headlessui/react";
 import { selectedContainerStyle, selectedTextStyle } from "./selected-style";
-import { RiArrowDropUpFill } from "react-icons/ri";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 function Submenu({ label: parentLabel, items, currentPath }) {
   return (
@@ -12,7 +12,7 @@ function Submenu({ label: parentLabel, items, currentPath }) {
         <>
           <Disclosure.Button className="relative text-left text-white pl-3 mt-3">
             {parentLabel}
-            <RiArrowDropUpFill
+            <RiArrowDropDownLine
               className={`absolute transition-all duration-150 ease-linear right-0 top-[.1rem] text-2xl ${
                 open ? "rotate-180" : ""
               }`}
