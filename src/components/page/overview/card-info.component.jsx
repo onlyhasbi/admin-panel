@@ -4,7 +4,7 @@ import { RiHistoryLine } from "react-icons/ri";
 
 function CardInfo({ label, value, icon, bgicon }) {
   return (
-    <Card className="w-[14rem] h-[9.6rem] relative flex items-center justify-center gap-x-5 border shadow-md">
+    <Card className="w-[14rem] h-[9.6rem] relative flex items-center justify-center gap-x-5 border rounded-lg shadow-md">
       <div
         className={`absolute -top-6 left-5 ${bgicon} w-[5rem] h-[5rem] flex justify-center items-center rounded-lg shadow-sm`}
       >
