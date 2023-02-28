@@ -1,17 +1,15 @@
-import Image from "next/image";
 import Label from "@/components/forms/label";
 import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
 import { profileModel } from "@/model/profile";
 import { Fragment } from "react";
 
-function ProfilePicture({ picture }) {
+function ProfilePicture() {
   return (
     <Popover className="relative">
       <Popover.Button className="outline-none">
-        <Image
-          loading="lazy"
-          src={picture}
+        <img
+          src="/assets/profile.png"
           alt="profile-picture"
           className="relative hover:bg-blue-600/50 w-[3.5rem] h-[3.5rem] rounded-full cursor-pointer"
         />

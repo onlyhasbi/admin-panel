@@ -3,7 +3,6 @@ import Heading from "./heading";
 import Profile from "./profile";
 import ProfileInfo from "./profile/profile-info.component";
 import ProfilePicture from "./profile/profile-picture.component";
-import picture from "../../public/img/profile.jpg";
 
 const user = {
   username: "John",
@@ -20,7 +19,7 @@ function Header() {
       <Heading pathName={pathname} username={username} />
       <Profile>
         <ProfileInfo fullname={fullname} role={role} />
-        <ProfilePicture picture={picture} />
+        <ProfilePicture />
       </Profile>
     </div>
   );
