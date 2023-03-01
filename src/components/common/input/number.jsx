@@ -2,12 +2,22 @@ import clsx from "clsx";
 import Labeled from "./labeled";
 import { NumericFormat } from "react-number-format";
 import { omit } from "lodash";
+import { forwardRef } from "react";
 
-function Number(props) {
-  const { label, name, placeholder, labelStyle, inputStyle, ...rest } = props;
+const Number = forwardRef(function Number(props, ref) {
+  const {
+    label,
+    name,
+    placeholder,
+    onChange,
+    labelStyle,
+    inputStyle,
+    ...rest
+  } = props;
 
   const input = (
     <NumericFormat
+      getInputRef={ref}
       id={name}
       name={name}
       placeholder={placeholder}
@@ -29,6 +39,6 @@ function Number(props) {
   ) : (
     input
   );
-}
+});
 
 export default Number;

@@ -8,45 +8,92 @@ import Table from "@/components/common/table";
 import Layout from "@/components/layout";
 import { useReducer, useState } from "react";
 import { RiAddLine } from "react-icons/ri";
+import { useForm } from "react-hook-form";
+import Radio from "@/components/common/input/radio";
+
+const defaultValues = {
+  username: "",
+  age: "",
+  search: "",
+  password: "",
+};
+
+const gender = [
+  {
+    label: "Female",
+    value: "female",
+  },
+  {
+    label: "Male",
+    value: "male",
+  },
+];
 
 function Building() {
   const [open, toggle] = useReducer((open) => !open, false);
   const [search, setSearch] = useState("");
+  const { register, handleSubmit, setValue, watch, setFocus } = useForm({
+    defaultValues,
+  });
 
   const handleDelete = () => {
     console.log("data telah dihapus");
     toggle();
   };
 
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    <div className="mb-14">
-      <div className="flex flex-col gap-y-3 justify-between items-center">
+    <div className="flex justify-center items-start gap-x-8 mb-14">
+      <form
+        className="w-8/12 flex flex-col gap-y-3 items-end"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <Input
+          label="Username"
+          name="username"
+          placeholder="username"
+          {...register("username")}
+        />
+
+        <Number
+          label="Age"
+          name="age"
+          placeholder="your age"
+          {...register("age")}
+        />
+
         <Search
           label="Search"
           name="search"
           placeholder="search"
-          search={search}
-          setSearch={setSearch}
+          onSearch={watch("search")}
+          onClear={() => {
+            setValue("search", "");
+            setFocus("search", { shouldSelect: true });
+          }}
+          {...register("search")}
         />
-        <Input label="Username" placeholder="username" name="username" />
-        <Password label="Password" placeholder="password" name="password" />
-        <Number label="Age" name="age" placeholder="your age" />
 
-        <Button className="text-white p-5" onClick={toggle} primary>
-          <RiAddLine />
-        </Button>
+        <Password
+          label="Password"
+          placeholder="password"
+          name="password"
+          {...register("password")}
+        />
+
+        <input
+          className="bg-blue-600 rounded-lg text-white px-8 py-2"
+          type="submit"
+          value="Save"
+        />
+      </form>
+
+      <div className="w-8/12 flex flex-col gap-y-3 items-end">
+        <Radio name="gender" options={gender} vertical />
       </div>
-      {/* <Table /> */}
-      <Modal title="Add Data" onOpen={open} onClose={toggle} close>
-        <p>add data form modal</p>
-        <Button
-          className="text-white pb-[.35rem] mt-5 ml-auto"
-          onClick={handleDelete}
-          primary
-        >
-          Save
-        </Button>
-      </Modal>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import Labeled from "./labeled";
-import { useReducer } from "react";
+import { forwardRef, useReducer } from "react";
 import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import { omit } from "lodash";
 
-function Password(props) {
+const Password = forwardRef(function Password(props, ref) {
   const [isShowPassword, toggle] = useReducer((show) => !show, false);
   const type = isShowPassword ? "text" : "password";
   const {
@@ -20,6 +20,7 @@ function Password(props) {
   const input = (
     <div className={clsx(["relative", className])}>
       <input
+        ref={ref}
         id={name}
         type={type}
         name={name}
@@ -51,6 +52,6 @@ function Password(props) {
   ) : (
     input
   );
-}
+});
 
 export default Password;

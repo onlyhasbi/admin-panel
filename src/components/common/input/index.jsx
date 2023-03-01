@@ -1,12 +1,14 @@
 import clsx from "clsx";
 import Labeled from "./labeled";
 import { omit } from "lodash";
+import { forwardRef } from "react";
 
-function Input(props) {
+const Input = forwardRef(function Input(props, ref) {
   const { label, name, placeholder, inputStyle, labelStyle, ...rest } = props;
 
   const input = (
     <input
+      ref={ref}
       id={name}
       name={name}
       type="text"
@@ -26,6 +28,6 @@ function Input(props) {
   ) : (
     input
   );
-}
+});
 
 export default Input;
