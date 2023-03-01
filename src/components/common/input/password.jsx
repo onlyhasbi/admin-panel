@@ -25,7 +25,7 @@ const Password = forwardRef(function Password(props, ref) {
         type={type}
         name={name}
         className={clsx([
-          "rounded-md placeholder:text-slate-400 text-slate-600 border-slate-300 focus:border-transparent",
+          "w-full rounded-md placeholder:text-slate-400 text-slate-600 border-slate-300 focus:border-transparent",
           inputStyle,
         ])}
         placeholder={placeholder}

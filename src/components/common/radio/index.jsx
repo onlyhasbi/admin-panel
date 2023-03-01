@@ -1,13 +1,15 @@
 import clsx from "clsx";
-import forwardRef from "react";
 
-function Radio(props) {
-  const { className, name, vertical, options } = props;
+import { forwardRef } from "react";
+import Labeled from "../input/labeled";
 
-  return (
+const Radio = forwardRef(function Radio(props, ref) {
+  const { className, name, label, labelStyle, vertical, options, ...rest } =
+    props;
+  const radio = (
     <div
       className={clsx([
-        "flex gap-x-6",
+        "flex gap-x-6 mt-1",
         { "flex-col gap-y-3": vertical },
         className,
       ])}
@@ -17,13 +19,15 @@ function Radio(props) {
         return (
           <div key={index} className="flex gap-x-2 items-center">
             <input
+              ref={ref}
               type="radio"
-              id={name}
+              id={value}
               name={name}
               value={value}
               className="focus:border-0 focus:ring-0"
+              {...rest}
             />
-            <label htmlFor={name} className="text-slate-700 text-sm">
+            <label htmlFor={value} className="text-slate-700 text-sm">
               {label}
             </label>
           </div>
@@ -31,6 +35,14 @@ function Radio(props) {
       })}
     </div>
   );
-}
+
+  return label ? (
+    <Labeled id="" label={label} className={labelStyle}>
+      {radio}
+    </Labeled>
+  ) : (
+    radio
+  );
+});
 
 export default Radio;

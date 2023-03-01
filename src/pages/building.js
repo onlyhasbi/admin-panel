@@ -9,13 +9,16 @@ import Layout from "@/components/layout";
 import { useReducer, useState } from "react";
 import { RiAddLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
-import Radio from "@/components/common/input/radio";
+import Radio from "@/components/common/radio";
+import Select from "@/components/common/select/select";
 
 const defaultValues = {
   username: "",
   age: "",
   search: "",
   password: "",
+  gender: "female",
+  merk: 4,
 };
 
 const gender = [
@@ -26,6 +29,29 @@ const gender = [
   {
     label: "Male",
     value: "male",
+  },
+];
+
+const phoneOptions = [
+  {
+    label: "Nokia",
+    value: 1,
+  },
+  {
+    label: "Sony",
+    value: 2,
+  },
+  {
+    label: "Samsung",
+    value: 3,
+  },
+  {
+    label: "Xiaomi",
+    value: 4,
+  },
+  {
+    label: "Motorola",
+    value: 5,
   },
 ];
 
@@ -48,11 +74,12 @@ function Building() {
   return (
     <div className="flex justify-center items-start gap-x-8 mb-14">
       <form
-        className="w-8/12 flex flex-col gap-y-3 items-end"
+        className="w-[20rem] flex flex-col  gap-y-3 items-center"
         onSubmit={handleSubmit(onSubmit)}
       >
         <Input
           label="Username"
+          labelStyle="w-full"
           name="username"
           placeholder="username"
           {...register("username")}
@@ -60,6 +87,7 @@ function Building() {
 
         <Number
           label="Age"
+          labelStyle="w-full"
           name="age"
           placeholder="your age"
           {...register("age")}
@@ -67,6 +95,7 @@ function Building() {
 
         <Search
           label="Search"
+          labelStyle="w-full"
           name="search"
           placeholder="search"
           onSearch={watch("search")}
@@ -79,21 +108,50 @@ function Building() {
 
         <Password
           label="Password"
+          labelStyle="w-full"
           placeholder="password"
           name="password"
           {...register("password")}
         />
 
-        <input
-          className="bg-blue-600 rounded-lg text-white px-8 py-2"
-          type="submit"
-          value="Save"
+        <div className="w-full">
+          <input
+            className="bg-blue-600 rounded-lg text-white px-8 py-2 ml-auto"
+            type="submit"
+            value="Save"
+          />
+        </div>
+      </form>
+
+      <form className="w-[20rem] flex flex-col gap-y-3 items-center">
+        <Radio
+          name="gender"
+          label="Jenis Kelamin"
+          labelStyle="w-full"
+          options={gender}
+          {...register("gender")}
+        />
+        <Select
+          name="merk"
+          options={phoneOptions}
+          className="w-full mt-3"
+          {...register("merk")}
         />
       </form>
 
-      <div className="w-8/12 flex flex-col gap-y-3 items-end">
-        <Radio name="gender" options={gender} vertical />
-      </div>
+      <Button className="text-white p-5" onClick={toggle} primary>
+        <RiAddLine />
+      </Button>
+      <Modal title="Add Data" onOpen={open} onClose={toggle} close>
+        <p>add data form modal</p>
+        <Button
+          className="text-white pb-[.35rem] mt-5 ml-auto"
+          onClick={handleDelete}
+          primary
+        >
+          Save
+        </Button>
+      </Modal>
     </div>
   );
 }
