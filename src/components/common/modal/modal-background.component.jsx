@@ -4,7 +4,7 @@ function ModalBackground() {
   return (
     <div
       className={clsx([
-        "absolute top-0 left-0 block w-screen h-screen z-[99] bg-black/25 ",
+        "overflow-auto fixed top-0 left-0 w-full h-full z-1 bg-black/25 ",
       ])}
     />
   );
