@@ -11,6 +11,7 @@ import { RiAddLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import Radio from "@/components/common/radio";
 import Select from "@/components/common/select/select";
+import TextArea from "@/components/common/textarea";
 
 const defaultValues = {
   username: "",
@@ -133,9 +134,18 @@ function Building() {
         />
         <Select
           name="merk"
+          label="Merk"
           options={phoneOptions}
-          className="w-full mt-3"
+          labelStyle="w-full mt-3"
           {...register("merk")}
+        />
+
+        <TextArea
+          label="Home Address"
+          labelStyle="w-full mt-2"
+          name="address"
+          placeholder="Home address"
+          row={3}
         />
       </form>
 
