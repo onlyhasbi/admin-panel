@@ -22,7 +22,7 @@ function ModalContent({ props }) {
       ref={modalRef}
       className={`${clsx([
         "bg-white rounded-xl shadow-lg p-5",
-        "absolute top-[50%] left-[50%] z-[100]",
+        "fixed top-[50%] left-[50%] z-[100]",
         "-translate-x-1/2 -translate-y-1/2",
       ])} ${className}`}
       {...rest}

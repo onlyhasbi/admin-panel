@@ -4,8 +4,28 @@ import clsx from "clsx";
 import { Disclosure, Transition } from "@headlessui/react";
 import { selectedContainerStyle, selectedTextStyle } from "./selected-style";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { useMemo } from "react";
 
 function Submenu({ label: parentLabel, items, currentPath }) {
+  const list = useMemo(() => {
+    return items.map((item, index) => {
+      const { label, path, icon } = item;
+      const active = path === currentPath;
+
+      return (
+        <Link key={index} href={path} className="relative">
+          <Label
+            label={label}
+            icon={icon}
+            iconStyle={clsx(["text-lg", ...selectedTextStyle(active)])}
+            textStyle={clsx(selectedTextStyle(active))}
+            className={clsx([...selectedContainerStyle(active), "pl-6"])}
+          />
+        </Link>
+      );
+    });
+  }, [items, currentPath]);
+
   return (
     <Disclosure>
       {({ open }) => (
@@ -28,28 +48,7 @@ function Submenu({ label: parentLabel, items, currentPath }) {
             leaveTo="opacity-0 -translate-y-3"
           >
             <Disclosure.Panel className="flex flex-col gap-y-4">
-              {items.map((item, index) => {
-                const { label, path, icon } = item;
-                const active = path === currentPath;
-
-                return (
-                  <Link key={index} href={path} className="relative">
-                    <Label
-                      label={label}
-                      icon={icon}
-                      iconStyle={clsx([
-                        "text-lg",
-                        ...selectedTextStyle(active),
-                      ])}
-                      textStyle={clsx(selectedTextStyle(active))}
-                      className={clsx([
-                        ...selectedContainerStyle(active),
-                        "pl-6",
-                      ])}
-                    />
-                  </Link>
-                );
-              })}
+              {list}
             </Disclosure.Panel>
           </Transition>
         </>

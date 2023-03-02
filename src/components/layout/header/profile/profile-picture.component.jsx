@@ -2,9 +2,26 @@ import Link from "next/link";
 import Label from "@/components/common/label";
 import { Popover, Transition } from "@headlessui/react";
 import { profileModel } from "@/model/profile";
-import { Fragment } from "react";
+import { Fragment, useMemo } from "react";
 
 function ProfilePicture() {
+  const list = useMemo(() => {
+    return profileModel.map((item) => {
+      const { label, path, icon } = item;
+
+      return (
+        <Link key={path} href={path}>
+          <Label
+            label={label}
+            icon={icon}
+            iconStyle="text-xl"
+            className="hover:bg-slate-50 text-slate-600 hover:text-blue-500 hover:rounded-md pl-4 py-2 text-left cursor-pointer"
+          />
+        </Link>
+      );
+    });
+  }, [profileModel]);
+
   return (
     <Popover className="relative">
       <Popover.Button className="outline-none">
@@ -24,22 +41,7 @@ function ProfilePicture() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Popover.Panel className="w-[10rem] absolute mt-2 right-0 z-10 p-2 border bg-white rounded-lg shadow-lg ">
-          <div className="flex flex-col gap-y-1">
-            {profileModel.map((item) => {
-              const { label, path, icon } = item;
-
-              return (
-                <Link key={path} href={path}>
-                  <Label
-                    label={label}
-                    icon={icon}
-                    iconStyle="text-xl"
-                    className="hover:bg-slate-50 text-slate-600 hover:text-blue-500 hover:rounded-md pl-4 py-2 text-left cursor-pointer"
-                  />
-                </Link>
-              );
-            })}
-          </div>
+          <div className="flex flex-col gap-y-1">{list}</div>
         </Popover.Panel>
       </Transition>
     </Popover>

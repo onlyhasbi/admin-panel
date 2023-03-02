@@ -6,7 +6,6 @@ import { omit } from "lodash";
 
 const Password = forwardRef(function Password(props, ref) {
   const [isShowPassword, toggle] = useReducer((show) => !show, false);
-  const type = isShowPassword ? "text" : "password";
   const {
     label,
     name,
@@ -22,8 +21,8 @@ const Password = forwardRef(function Password(props, ref) {
       <input
         ref={ref}
         id={name}
-        type={type}
         name={name}
+        type={getType(isShowPassword)}
         className={clsx([
           "w-full rounded-md placeholder:text-slate-400 text-slate-600 border-slate-300 focus:border-transparent",
           inputStyle,
@@ -53,5 +52,9 @@ const Password = forwardRef(function Password(props, ref) {
     input
   );
 });
+
+function getType(isText) {
+  return isText ? "text" : "password";
+}
 
 export default Password;

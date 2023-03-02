@@ -3,7 +3,8 @@ import Labeled from "../input/labeled";
 import { forwardRef } from "react";
 
 const TextArea = forwardRef(function TextArea(props, ref) {
-  const { label, labelStyle, name, row, col, placeholder, className } = props;
+  const { label, labelStyle, name, row, col, placeholder, className, ...rest } =
+    props;
   const textarea = (
     <textarea
       ref={ref}
@@ -17,6 +18,7 @@ const TextArea = forwardRef(function TextArea(props, ref) {
       name={name}
       row={row}
       col={col}
+      {...rest}
     ></textarea>
   );
 

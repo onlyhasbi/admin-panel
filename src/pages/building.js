@@ -9,7 +9,7 @@ import Layout from "@/components/layout";
 import { useReducer, useState } from "react";
 import { RiAddLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
-import Radio from "@/components/common/radio";
+import { RadioGroup, Radios } from "@/components/common/radio";
 import Select from "@/components/common/select/select";
 import TextArea from "@/components/common/textarea";
 
@@ -31,6 +31,10 @@ const gender = [
   {
     label: "Male",
     value: "male",
+  },
+  {
+    label: "Shemale",
+    value: "shemale",
   },
 ];
 
@@ -116,13 +120,10 @@ function Building() {
           {...register("password")}
         />
 
-        <Radio
-          label="Jenis Kelamin"
-          name="gender"
-          labelStyle="w-full"
-          options={gender}
-          {...register("gender")}
-        />
+        <RadioGroup label="Jenis Kelamin" labelStyle="w-full mt-2">
+          <Radios options={gender} name="gender" {...register("gender")} />
+        </RadioGroup>
+
         <Select
           label="Merk"
           name="merk"
@@ -140,43 +141,18 @@ function Building() {
           {...register("address")}
         />
 
-        <div className="w-full">
+        <div className="w-full flex gap-x-3">
+          <Button className="text-white p-5 ml-auto" onClick={toggle} primary>
+            Modal
+          </Button>
           <input
-            className="bg-blue-600 rounded-lg text-white px-8 py-2 ml-auto"
+            className="bg-blue-600 rounded-lg text-white px-8 py-2 "
             type="submit"
             value="Save"
           />
         </div>
       </form>
 
-      {/* <form className="w-[20rem] flex flex-col gap-y-3 items-center">
-        <Radio
-          name="gender"
-          label="Jenis Kelamin"
-          labelStyle="w-full"
-          options={gender}
-          {...register("gender")}
-        />
-        <Select
-          name="merk"
-          label="Merk"
-          options={phoneOptions}
-          labelStyle="w-full mt-3"
-          {...register("merk")}
-        />
-
-        <TextArea
-          label="Home Address"
-          labelStyle="w-full mt-2"
-          name="address"
-          placeholder="Home address"
-          row={3}
-        />
-      </form> */}
-
-      <Button className="text-white p-5" onClick={toggle} primary>
-        <RiAddLine />
-      </Button>
       <Modal title="Add Data" onOpen={open} onClose={toggle} close>
         <p>add data form modal</p>
         <Button
