@@ -19,7 +19,8 @@ const defaultValues = {
   search: "",
   password: "",
   gender: "female",
-  merk: 4,
+  merk: 2,
+  address: "",
 };
 
 const gender = [
@@ -115,6 +116,30 @@ function Building() {
           {...register("password")}
         />
 
+        <Radio
+          label="Jenis Kelamin"
+          name="gender"
+          labelStyle="w-full"
+          options={gender}
+          {...register("gender")}
+        />
+        <Select
+          label="Merk"
+          name="merk"
+          options={phoneOptions}
+          labelStyle="w-full mt-3"
+          {...register("merk")}
+        />
+
+        <TextArea
+          label="Home Address"
+          labelStyle="w-full mt-2"
+          name="address"
+          placeholder="Home address"
+          row={3}
+          {...register("address")}
+        />
+
         <div className="w-full">
           <input
             className="bg-blue-600 rounded-lg text-white px-8 py-2 ml-auto"
@@ -124,7 +149,7 @@ function Building() {
         </div>
       </form>
 
-      <form className="w-[20rem] flex flex-col gap-y-3 items-center">
+      {/* <form className="w-[20rem] flex flex-col gap-y-3 items-center">
         <Radio
           name="gender"
           label="Jenis Kelamin"
@@ -147,7 +172,7 @@ function Building() {
           placeholder="Home address"
           row={3}
         />
-      </form>
+      </form> */}
 
       <Button className="text-white p-5" onClick={toggle} primary>
         <RiAddLine />

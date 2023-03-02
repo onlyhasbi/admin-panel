@@ -6,6 +6,7 @@ const TextArea = forwardRef(function TextArea(props, ref) {
   const { label, labelStyle, name, row, col, placeholder, className } = props;
   const textarea = (
     <textarea
+      ref={ref}
       id={name}
       className={clsx([
         "rounded-md resize-none placeholder:text-slate-400 text-slate-600 focus:border-transparent border-slate-300",
